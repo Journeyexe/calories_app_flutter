@@ -18,10 +18,10 @@ class ComidaBloc extends Bloc<ComidaEvent, ComidaState> {
     try {
       emit(ComidaLoadingState());
       if (event is GetComida) {
-        lista = await _repository.getComida('carne');
+        lista = await _repository.getComida(event.keyWord);
       }
       emit(ComidaLoadedState(lista: lista));
-      
+
     } catch (e) {
       emit(ComidaErrorState(exception: Exception(e)));
     }

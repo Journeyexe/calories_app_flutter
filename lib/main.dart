@@ -1,4 +1,4 @@
-import 'package:calories_app_flutter/screens/home_screen.dart';
+import 'package:calories_app_flutter/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,10 +11,13 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: HomeScreen.routeName,
-      routes: {
-        HomeScreen.routeName: (context) => const HomeScreen()
-      },
+      title: 'Calories App',
+      theme: ThemeData.from(
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.deepPurple),
+      ),
+      debugShowCheckedModeBanner: false,
+      initialRoute: AppRoutes.home,
+      onGenerateRoute: AppRoutes.generateRoute,
     );
   }
 }
